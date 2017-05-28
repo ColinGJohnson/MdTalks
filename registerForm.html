@@ -1,0 +1,51 @@
+
+<!-- Photo upload form -->
+<div id="registerForm">
+	<br><h1>Register Account</h1><br>
+
+	<form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">			
+				
+		<!-- Text boxes for first and last name -->
+		<input <?php if(!empty($firstNameErr)){echo('class="inputErr"');} ?>  name="firstName" type="text" placeholder="First Name" value="<?php echo $firstName;?>">
+		<input <?php if(!empty($lastNameErr)){echo('class="inputErr"');} ?>  name="lastName" type="text" placeholder="Last Name" value="<?php echo $lastName;?>">
+		<br><br>
+					
+		<!-- Upload button for image -->
+		Upload a profile picture.
+		<input type="file" name="fileToUpload" id="fileToUpload">
+		<br><br>
+					
+		<!-- Checkbox for accepting copyright -->
+		<input type="checkbox" name="checkbox"> 
+		I accept the terms and conditions for use of this site outlines <a>here</a>.
+		<br><br> 
+					
+		<!-- Text Boxes for description and tags -->
+		<input <?php if($descriptionErr == true){echo('class="inputErr"');} ?>  name="photoDesc" type="text" placeholder="Photo Description" value="<?php echo $description;?>">
+		<br><br>
+			
+		<!-- Submit and reset buttons -->
+		<input type="submit" value="Register" name="submit"/>
+		<input type="reset"  value="Reset"  onclick="formReset()"/>
+		<br><br>
+		
+		<!-- terms error -->
+		<?php 
+		if(!empty($copyrightErr)){
+			echo('<span style="color:red;">'.$copyrightErr.'</span><br>');
+		} ?>
+			
+		<!-- file select error -->
+		<?php 
+		if(!empty($uploadBtnErr)){
+			echo('<span style="color:red;">'.$uploadBtnErr.'</span><br>');
+		} ?>
+			
+		<!-- text fields -->
+		<?php 
+		if(!empty($firstNameErr) || !empty($lastNameErr) || !empty($tagsErr) || !empty($descriptionErr)){
+			echo('<span style="color:red;"> Fill in missing text fields. </span> <br>');
+		} ?>
+	</form>	
+	<br><br>
+</div>

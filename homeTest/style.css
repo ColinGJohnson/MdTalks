@@ -1,0 +1,109 @@
+body{
+    background-color: grey;
+    margin: 0px;
+    padding: 0px;
+    background-image: url("bg.png");
+}
+
+#outer{
+    position: static;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#inner{
+    height: 100%px;
+    position: relative; 
+    background-color: white;
+    margin: 1%; 
+}
+
+#menuBar{
+    height: 30px;
+    width: 100%;
+    padding-top: 20px;
+    text-decoration: none;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: white;
+}
+
+#bannerContent{
+	position: relative;
+	width: 50%;
+    margin: 0 auto;
+	top: 20%;
+ 	transform: translateY(-20%);
+}
+
+#banner{
+	text-align: center;
+    height: 300px;
+    width: 100%;
+    background-color: #666666;
+    background-size:cover;
+}
+
+.mainTopic{
+    height: 150px;
+    width: 100%;
+    margin-top: 2px;
+    padding: 0px;
+    background-color: #AD56FF;
+}
+
+.mainTopicInner{
+	background-color: white; 
+	position: relative;
+	height: 80%;
+	width: 97%;
+	margin: 0 auto;
+	top: 50%;
+ 	transform: translateY(-50%);
+ 	opacity: 0.4;
+}
+
+.extraInfo{
+    text-align: center;
+    height: 200px;
+    width: 100%;
+    margin-top: 2px;
+    padding: 0px;
+    background-color: #666666;
+}
+
+.MDinfoText{
+    padding: 30px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 16px;
+    color: white;
+}
+
+.title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 72px;
+	color: white;
+}
+
+hr{
+	margin: 0px 20px 0px 20px;
+}
+
+p {
+	position: absolute;
+}
+
+h3 {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: white;
+}

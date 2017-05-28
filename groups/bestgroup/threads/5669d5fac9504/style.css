@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+.post{
+    position:relative;
+    padding: 5px;
+    padding-bottom: 15px;
+    border-bottom: thin solid grey;
+}
+
+.post:hover{
+	background-color: #CCCCCC;
+}
+
+.name{
+    position:absolute;
+    right: 0px;
+    bottom: 0px;
+    font-style:italic;
+    margin: 5px;
+}
+
+.button{
+	position:absolute
+	padding: 15px;
+}
+
+.hidden{
+	display: none;
+}
+
+::-webkit-scrollbar:hover{
+	border-radius: 10px;
+	width: 100px;	
+}
+
+::-webkit-scrollbar{
+	width: 5px;
+	background-color: #F0F0F0;
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+	width:5px;
+}
+
+::-webkit-scrollbar-thumb{
+	border-radius: 5px;
+	background-color: #CCCCCC;
+}
+
+::-webkit-scrollbar-track{
+	border-radius: 5px;
+}
+
+
+#postContainer{
+	position: absolute;
+	top: 11%;
+	max-height: 500px;
+	overflow-y: scroll;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 75%;
+}
+
+.subject{
+	font-weight:400;
+	font-size: 16pt;
+	padding-bottom:5px;
+	color: black;
+}
+
+.text{
+	text-indent: 25px;
+	font-size: 12pt;
+}
+
+.formText{
+	margin: 7px;
+}
+
+#message{
+	position:absolute;
+	left: 5px;
+	bottom: 30px;
+	width: 300px;
+	height: 100px;
+	word-wrap: break-word;
+
+}
+
+#subject{
+	position: absolute;
+	bottom: 145px;
+	left: 5px;
+}
+
+#name{
+	position:absolute;
+	left: 5px;
+	bottom: 175px;
+}
+
+#submit{
+	position: absolute;
+	bottom: 182px;
+	left: 200px;
+}
+
+#banner{
+	position:absolute;
+	width:100%;
+	height: 10%;
+	top:0px;
+	font-weight: 400pt;
+	background-color: #AD57E8;
+	right: 0px;
+	left: 0px;
+	text-align:center;
+}
+
+h1{
+	background-color: black;
+	color: white;
+	font-family: 'Open Sans';
+	font-weight: 400;
+	margin: 0px;
+	margin-top: 20px;
+}
+
+input, textarea{
+	font-family: 'Open Sans';
+}
+
