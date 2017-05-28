@@ -1,0 +1,111 @@
+#inner {
+	
+	font-family: 'Open Sans';
+	font-weight: 300;
+
+}
+
+#firstpost {
+	
+	position: relative;
+	margin: auto;	
+	width: 96%;
+	margin-top: 2px;
+	padding: 1.5%;
+	background-color: rgba(0, 173, 255, 0.4);
+	word-wrap: break-word;
+	
+}
+
+#threadtitle {
+	
+	font-size: 20pt;
+
+}
+
+.post {
+
+	position: relative;
+	margin: auto;
+	border-top: 1px solid rgb(67, 162, 207);
+	width: 99%;
+	margin-top: 2px;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	word-wrap: break-word;
+}
+
+.username {
+	
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30%;
+	height: 102%;
+	border-left: 1px solid rgb(67, 162, 207);
+	color: black;
+}
+
+#addpostform {
+	
+	width: 80%;
+
+}
+
+#addpostarea {
+	
+	width: 50%;
+	height: 100px;
+	border: 1px solid #CCCCCC;
+	margin: 2%;
+	font-family: 'Open Sans';
+	font-weight: 400;
+	resize: none;
+}
+
+#addposttitle {
+	
+	margin-top: 1%;
+	margin-left: 1%;
+	color: black;
+	
+}
+
+#addpostbutton {
+	
+	position: relative;
+	margin-left: -53%;
+	margin-bottom: 1%;
+
+}
+
+.error{
+	color: black;
+}
+
+.firstusername{
+	position: relative;
+	right: -70%;
+}
+
+.posttext{
+	position: relative;
+	padding-left: 3%;
+	width: 70%;
+}
+
+.nametext {
+	
+	position: relative;
+	top: 50px;
+	left: 140px;
+}
+
+
+.thumbnail{
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	width: 90px;
+	height: 90px;
+}

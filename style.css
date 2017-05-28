@@ -1,3 +1,47 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+button {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  border: none;
+  text-decoration: none;
+  background-color: #43A2CF;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input[type="button"], input[type="reset"], input[type="submit"] {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  border: none;
+  text-decoration: none;
+  background-color: #43A2CF;
+  padding: 10px;
+  border-radius: 5px;
+}
+button:hover, input[type="reset"]:hover, input[type="button"]:hover, input[type="submit"]:hover  {
+	cursor: hand; cursor: pointer;
+	background: #63C2FF;
+}
+button:active, input[type="reset"]:active, input[type="button"]:active, input[type="submit"]:active   {
+	background: #83E2FF;
+}
+
+
+.inputBtn {
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #999999;
+  padding: 3px 20px 3px 20px;
+  border: none;
+  text-decoration: none;
+}
+
 #outer{
     position: static;
     height: 100%;
@@ -6,39 +50,21 @@
     padding: 0px;
 }
 
+#innercentered{
+    background-color: white;
+    position:absolute;
+	width: 97%;
+	top:50%;
+	left:50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
 #inner{
-    height: 100%px;
     position: relative; 
     background-color: white;
     margin: 1%; 
-}
-
-#menuBar{
-    height: 30px;
-    width: 100%;
-    padding-top: 20px;
-    text-decoration: none;
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
-}
-
-#footer{
-	margin-top: 2px;
-	text-align: center;
-    height: 30px;
-    width: 100%;
-    background-color: #666666;
-    background-size:cover;
-}
-
-#footerContent{
-    height: 30px;
-    width: 100%;
-    padding-top: 5px;
-    text-decoration: none;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 14px;
-	color: white;
 }
 
 #bannerContent{
@@ -49,11 +75,15 @@
  	transform: translateY(-20%);
 }
 
+.title {
+	font-size: 68px;
+}
+
 #homeBanner{
 	text-align: center;
-    height: 300px;
+    height: 200px;
     width: 100%;
-    background-color: #666666;
+	color: #CC0EF7;
     background-size:cover;
 }
 
@@ -61,63 +91,97 @@
 	text-align: center;
     height: 100px;
     width: 100%;
-    background-color: #666666;
-    background-size:cover;
-}
-
-#registerForm{
-	margin-top: 2px;
-	text-align: center;
-	background-color: #AD56FF;
+    background-color: #444;
 }
 
 .mainTopic{
+	position: relative;
     height: 150px;
-    width: 100%;
-    margin-top: 2px;
+    margin-top: -15px;
     padding: 0px;
-    background-color: #AD56FF;
+	text-overflow: ellipsis;
+}
+
+.mainTopic:hover {
+	background: rgba(200, 230, 255, 0.5);
+}
+
+.formBox{
+	text-align: center;
+	padding: 5px;
+	margin-top: 2px;
+	color: black;
+	background-color: white;
 }
 
 .mainTopicInner{
-	background-color: rgba(255, 255, 255, 0.4);
 	position: relative;
 	height: 80%;
 	width: 97%;
 	margin: 0 auto;
 	top: 50%;
+	margin-top: 15px;
  	transform: translateY(-50%);
+    color: #43A2CF !important;
+    font-family: 'Open Sans';
+}
+
+#heretojoingroups {
+
+	color: #43A2CF;
+	font-weight: 600;
+
 }
 
 .topicIcon{
 	top: 50%;
  	transform: translateY(-50%);
-	opacity: 1;
-	position: relative;
-	height: 90%;
-	margin-left: 6px;
+	position: absolute;
+	margin-left: 10px;
+	width: 100px;
+	height: 100px;
+	border: 5px solid #43A2CF;
+	
 }
 
 .extraInfo{
-    text-align: center;
     height: 200px;
     width: 100%;
     margin-top: 2px;
     padding: 0px;
-    background-color: #666666;
+	color: #AD56FF;
+	font-family: 'Open Sans';
+	font-weight: 300;
+    text-align: center;
+}
+
+#contentDiv{
+    margin-top: 2px;
+    padding: 15px;
+    background-color: #AD56FF;
 }
 
 .MDinfoText{
     padding: 30px;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 16px;
-    color: white;
 }
 
-.title {
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 72px;
-	color: white;
+.topicHeading{
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+	margin-left: 150px;
+	top: 40px;
+ 	transform: translateY(-60%);
+ 	font-size: 18pt;
+}
+
+.topicInfo{
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+	margin-left: 450px;
+	top: 25px;
+ 	transform: translateY(-50%);
 }
 
 hr{
@@ -126,35 +190,120 @@ hr{
 
 p {
 	position: absolute;
+	text-overflow: ellipsis;
 }
 
-h3 {
-	position: absolute;
+h1 {
 	left: 0px;
 	right: 0px;
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	margin: 0px;
+	padding: 0px;
+	font-size: 40pt;
 }
 
 a {
 	text-decoration: none;
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
 }
 
 body{
-    background-color: grey;
+    background-color: white;
     margin: 0px;
     padding: 0px;
     background-image: url("resources/bg.png");
+    font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 15px;
+    color: black;
 }
 
-#registerform {
-	
-	position: absolute;
-	height: 50%;
-	width: 20%;
-	top: 300%;
-	left: 40%;
+.message{
+	color: black;
+}
 
+#yourgroups {
+	position: relative;
+	background: white;
+	padding-bottom: 50px;
+	color: #43A2CF;
+	font-size: 26pt;
+	font-family: 'Open Sans';
+	font-weight: 300;
+}
+
+#groupborder {
+	
+	width: 90%;
+	margin-left: 5%;
+    border: 10px solid #43A2CF;
+    color: #43A2CF;
+    border-radius: 15px;
+    z-index: 1000;
+    font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 15px;
+	
+}
+
+#infobox {
+	margin-top: 2px;
+	width: 100%;
+	padding: 5%;
+	color: black;
+	font: 16px 'Open Sans';
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	background: white;
+}
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+.hidden{
+	display: none;
+}
+
+.show{
+	display: inline;
+}
+
+.thumbnail{
+	position: relative;
+	padding-left: 3px;
+	width: 40px;
+	height: 40px;
+	margin:2px;
+}
+
+.user{
+	color:black;
+}
+
+#infobox {
+	height: 250px;
+}
+
+#websiteinfotext {
+	width: 90%;
+}
+
+.profileInfo{
+	margin-left: 10%;
+}	
+
+pre{
+	padding: 10px;
+	font-family: 'Open Sans Condensed';
+	width: 90%;
+	white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }

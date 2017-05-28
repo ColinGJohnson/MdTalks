@@ -1,10 +1,10 @@
 function goToUrl(path) {
 
-        window.location = "http://142.31.53.22/~mdtalks/groups/bestgroup/" + path;
+        window.location = "http://142.31.53.22/~mdtalks/" + path;
 
 }
 
-function changeDesc() {
+function changeDesc(groupid) {
 
         var button = $("#changedesc");
 
@@ -28,7 +28,7 @@ function changeDesc() {
 				$.ajax({
 					type: "POST",
 					url: "add.php",
-					data: {"groupdesc":$("#groupdesc").val()},
+					data: {"groupid":groupid, "groupdesc":$("#groupdesc").val()},
 					success: function(response) {}
 				});
 
@@ -44,7 +44,7 @@ function showAddForm() {
 
         document.getElementById("announce").style.display = "none";
         document.getElementById("deleteannounce").style.display = "none";
-        document.getElementById("announcecontain").style.height = "45%";
+        document.getElementById("announcements").style.height = "630px";
 
         form.style.bottom = "5%";
         form.style.display = "block";
@@ -58,7 +58,7 @@ function cancelAddAnnounce() {
 
         document.getElementById("announce").style.display = "block";
         document.getElementById("deleteannounce").style.display = "block";
-        document.getElementById("announcecontain").style.height = "60%";
+        document.getElementById("announcements").style.height = "430px";
 
 }
 
@@ -70,22 +70,27 @@ function allowAnnounceDelete() {
 		$(".deletetextanno").each(function(index, element) {
 			$(element).css("display", "block");
 		});
+		
+		injectStyles(".announcement:hover { background-color: rgba(0,0,0,0); }");
+		
 	} else {
 		$("#deleteannounce").html("Delete Announcement");
 
 		$(".deletetextanno").each(function(index, element) {
 			$(element).css("display", "none");
 		});
+		
+		injectStyles(".announcement:hover { background-color: rgba(200, 230, 255, 0.5); }");
 	}
 	
 }
 
-function deleteAnno(index) {
+function deleteAnno(index, groupid) {
 
 	$.ajax({
 		type:"POST",
 		url:"delete.php",
-		data: {"index": index, "type":"anno"},
+		data: {"index": index, "type":"anno", "groupid":groupid},
 		success : function(response) {
 			document.getElementById("announcecontain").innerHTML = response;
 		}});
@@ -97,8 +102,12 @@ function showAddThreadForm() {
         var form = document.getElementById("addthread");
 
         document.getElementById("buttonaddthread").style.display = "none";
-        document.getElementById("threadcontain").style.height = "45%";
-
+        document.getElementById("threads").style.height = "650px";
+		
+		var deletethread = document.getElementById("deletethread");
+		if (deletethread != null) {
+			deletethread.style.display = "none";
+		}
         form.style.bottom = "5%";
         form.style.display = "block";
 
@@ -110,7 +119,8 @@ function cancelAddThread() {
         document.getElementById("addthread").style.bottom = "5%";
 
         document.getElementById("buttonaddthread").style.display = "block";
-        document.getElementById("threadcontain").style.height = "60%";
+        document.getElementById("threads").style.height = "500px";
+		document.getElementById("deletethread").style.display = "block";
 
 }
 
@@ -124,21 +134,27 @@ function allowThreadDelete() {
 		$(".deletetextthread").each(function(index, element) {
 		$(element).css("display", "block");
 	});
+	
+		injectStyles(".thread:hover { background-color: rgba(0,0,0,0); }");
+		
 	} else {
-		$("#deletethread").html("Delete Thread");
+		$("#deletethread").html("Delete Discussion");
 
 		$(".deletetextthread").each(function(index, element) {
 		$(element).css("display", "none");
 	});
+		injectStyles(".thread:hover { background-color: rgba(200, 230, 255, 0.5); }");
+	
+	
 	}
 	
 }
 
-function deleteThread(index, id) {
+function deleteThread(index, id, groupid) {
 	$.ajax({
 		type:"POST",
 		url:"delete.php",
-		data: {"index": index, "id":id, "type":"thre"},
+		data: {"groupid":groupid, "index": index, "id":id, "type":"thre"},
 		success : function(response) {
 			document.getElementById("threadcontain").innerHTML = response;
 		}});
@@ -146,6 +162,7 @@ function deleteThread(index, id) {
 }
 
 function addToJson(id) {
+
 
     $.ajax({
     type: "POST",
@@ -172,12 +189,80 @@ function prepareFile() {
 
 }
 
-function goToThreadPage(idstring, groupname) {
+function goToThreadPage(idstring, groupid) {
 
 	$(".deletetextthread").each(function(index, element) {
 	
 		if ($(this).css("display") === "none") {
-			window.location = "http://142.31.53.22/~mdtalks/groups/bestgroup/threads/" + idstring;
+			window.location = "http://142.31.53.22/~mdtalks/groups/threadpage/?groupid=" + groupid + "&threadid=" + idstring;
 		}
 	});
+}
+
+function findLogo(groupid) {
+	
+	$("#logoupload").change(function() {
+	
+		var formData = new FormData();
+		formData.append("file", document.getElementById("logoupload").files[0]);
+		formData.append("groupid", groupid);
+    	$.ajax({
+    		type:"POST", 
+    		url:"add.php", 
+    		data:formData,
+    		processData: false, 
+    		contentType: false, 
+    		success: function(response) {
+    			$("#logo").css("background-image",'url(../grouplist/' + groupid + '/logo.jpg?random=' + new Date().getTime() + ")");
+    		}
+    	});
+	});
+	
+	$("#logoupload").click();
+}
+
+function injectStyles(rule) {
+  var div = $("<div />", {
+    html: '&shy;<style>' + rule + '</style>'
+  }).appendTo("body");    
+}
+
+function toggleSettingsPanel() {
+
+	if (document.getElementById('settingspanel').style.display === "none") {
+		document.getElementById('settingspanel').style.display = "block";
+	} else {
+		document.getElementById('settingspanel').style.display = "none";
+	}
+	
+}
+
+function addAdmin(groupid) {
+
+	var adminemail = prompt("Enter the new admin's email:", "");
+
+	$.ajax({
+    	type:"POST", 
+    	url:"../groupfunctions.php", 
+    	data:{"admintoadd":adminemail, "groupid":groupid},
+    	success: function(response) {
+    		
+    	}	
+    });
+
+}
+
+function addMember(groupid) {
+
+	var memberemail = prompt("Enter the new member's email:", "");
+
+	$.ajax({
+    	type:"POST", 
+    	url:"../groupfunctions.php", 
+    	data:{"membertoadd":memberemail, "groupid":groupid},
+    	success: function(response) {
+    		alert(response);
+    	}	
+    });
+
 }
